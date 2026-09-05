@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Migrant Domestic Worker eService — Isabelle Tjokrosetio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nav-bg: #dfdff6;
+    --accent: #4b397a;
+    --card-bg: #f2f2f7;
+    --border-gray: #c7c7cc;
+    --text-dark: #161616;
+    --max-width: 1100px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img, video { max-width: 100%; display: block; border-radius: 6px; }
+
+  nav {
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 48px;
+    padding: 24px 40px;
+    font-size: 16px;
+  }
+  nav a.back { margin-right: auto; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+
+  .content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+  }
+
+  .hero-image { margin-bottom: 40px; }
+  .hero-image img { width: 100%; }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: #444;
+    margin: 0 0 32px;
+    max-width: 640px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 48px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .meta div span.label {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .meta div span.value { font-size: 16px; }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 56px 0 16px;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 32px 0 12px;
+  }
+  p { font-size: 17px; margin: 0 0 16px; }
+  ul { margin: 0 0 16px; padding-left: 22px; }
+  li { font-size: 17px; margin-bottom: 6px; }
+
+  .responsibilities {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 24px 0 40px;
+  }
+  .responsibilities p.label {
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .image-block { margin: 24px 0 40px; }
+  .image-caption {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0 40px;
+  }
+  .compare-col h4 {
+    font-size: 16px;
+    margin: 0 0 10px;
+  }
+  .compare-col.good h4 { color: #1a7f37; }
+  .compare-col.bad h4 { color: #b3261e; }
+  .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 15px; }
+
+  .personas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 24px 0 40px;
+  }
+  .persona {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .persona img {
+    border-radius: 0;
+    width: auto;
+    height: 140px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+  }
+  .persona h4 { margin: 0 0 8px; font-size: 17px; }
+  .persona ul { text-align: left; padding-left: 18px; margin: 0; }
+  .persona li { font-size: 14px; }
+
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 24px 0 48px;
+  }
+  .toc a {
+    display: block;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px 20px;
+    color: var(--text-dark);
+    font-size: 15px;
+  }
+  .toc a strong { display: block; color: var(--accent); font-size: 14px; margin-bottom: 4px; }
+  .toc a:hover { text-decoration: none; background: #e7e7f0; }
+
+  .callout {
+    background: #fdf3e0;
+    border-left: 4px solid #d9a441;
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 24px 0;
+    font-style: italic;
+  }
+
+  .takeaways { margin: 24px 0 40px; }
+  .takeaway-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .takeaway-card h4 { margin: 0 0 8px; font-size: 17px; }
+  .takeaway-card p { margin: 0; font-size: 15px; }
+
+  .proto-link {
+    display: inline-block;
+    margin: 8px 0 24px;
+    font-weight: 600;
+  }
+
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    border-top: 1px solid var(--border-gray);
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+  }
+  footer a { display: inline-flex; margin-top: 12px; }
+  footer svg { width: 24px; height: 24px; fill: #333; }
+
+  @media (max-width: 700px) {
+    nav { padding: 20px 24px; gap: 24px; }
+    .content { padding: 40px 20px 80px; }
+    h1 { font-size: 28px; }
+    .personas, .compare-grid, .toc { grid-template-columns: 1fr; }
+    .meta { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="back" href="index.html">← Back to Projects</a>
+  <a href="index.html#works">Projects</a>
+  <a href="index.html#about">About</a>
+  <a href="Isabelle_Tjokrosetio_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+</nav>
+
+<div class="content">
+
+  <div class="hero-image">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62557778534e7840da6ba4d7_hero%20image%20mdw.jpg" alt="Migrant Domestic Worker eService hero image">
+  </div>
+
+  <h1>Migrant Domestic Worker eService</h1>
+  <p class="subtitle">Empowering family members to perform work permit transactions on behalf of aged employers</p>
+
+  <div class="meta">
+    <div><span class="label">Team</span><span class="value">Migrant Domestic Worker (MDW) team</span></div>
+    <div><span class="label">Timeline</span><span class="value">Feb 2022 – Aug 2022</span></div>
+  </div>
+
+  <h2>Context</h2>
+  <p>At the Ministry of Manpower (MOM), employers of MDWs use the eService to perform transactions for their workers.</p>
+  <p>My team developed a new feature for family members to transact on behalf of non tech-savvy, aged employers. I was 1 of 2 main designers.</p>
+
+  <div class="responsibilities">
+    <p class="label">My responsibilities:</p>
+    <p style="margin:0;">As 1 of 2 main designers, I led interaction design, UI, and user flows end-to-end — redesigning the legacy system, running research to validate hypotheses, defining terminology and tone, and pushing the most efficient user pathways through to senior stakeholders.</p>
+  </div>
+
+  <h3>The problem</h3>
+  <p>Family members (FMs) of aged employers tend to help the latter with transactions such as renewing the worker's permit. Problems have surfaced — such as transacting under false IDs and employers unable to give consent. The MOM business team also needed to simplify the process to transact on behalf.</p>
+
+  <h3>The outcome</h3>
+  <p>An end-to-end, seamless experience for family members to perform transactions for aged employers.</p>
+
+  <h2>Family members login to their own account and request to transact on behalf of an employer</h2>
+  <p>Their request is verified and approved by a MOM officer.</p>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/625770541de51bd3a497fb0f_before%20start%20pg%20outcome%20for%20mobile.jpg" alt="Request to transact outcome flow">
+  </div>
+  <div class="image-block">
+    <video controls>
+      <source src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62560a552f6e88b098a4837f_trial%204-transcode.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p>After which, they would be able to do transactions for the employer.</p>
+  <p>This way, transactions done by the family member can be traced back to their own account. The employer is also able to give permission to family members.</p>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62576fc9f37e01e6ec76f23e_can%20transact%20for%20others%20outcome%20for%20mobile.jpg" alt="Can transact for others outcome flow">
+  </div>
+  <div class="image-block">
+    <video controls>
+      <source src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62568772e553ab085ece523d_trial%204%20part%20b-transcode.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <h3>An improved homepage and navigation</h3>
+  <ul>
+    <li>A consolidated dashboard with helpful next steps and relevant information</li>
+    <li>Users can see all workers they are managing at one glance</li>
+    <li>Clear and intuitive navigation</li>
+  </ul>
+
+  <div class="compare-grid">
+    <div class="compare-col good">
+      <h4>After redesign</h4>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62557dadba7c858cbe56d61f_mdw%20thumbnail%20expanded.jpg" alt="After redesign homepage">
+    </div>
+    <div class="compare-col bad">
+      <h4>Before redesign</h4>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/625580f1cda9be6299296c7e_before%20mdw%20outcome.jpg" alt="Before redesign homepage">
+    </div>
+  </div>
+
+  <h2>Here's how I got there</h2>
+  <p>Click a box to jump to the section.</p>
+  <div class="toc">
+    <a href="#taking-stock"><strong>1 — Taking stock</strong>Reviewing existing designs and business processes</a>
+    <a href="#research"><strong>2 — Delving into research</strong>Rapid prototyping to gather feedback</a>
+    <a href="#designing"><strong>3 — Designing an end-to-end experience</strong>Balancing user needs, tech constraints and feasibility</a>
+    <a href="#challenges"><strong>4 — Overcoming challenges</strong>Implementing the ideal experience despite roadblocks</a>
+  </div>
+
+  <h2 id="taking-stock">Taking stock</h2>
+  <p>I spoke to business stakeholders to gain a clearer understanding of the project. I discovered that:</p>
+  <ul>
+    <li>In response to Singapore's aging population, MOM wanted to enlist the help of family members to manage online transactions</li>
+    <li>Currently, family members transact for the employer using the employers' SingPass (national digital identity). There are legal risks with this since family members are not using their own IDs</li>
+    <li>MOM needed to track which family member was helping which employer</li>
+  </ul>
+
+  <h3>Here's how a typical scenario plays out</h3>
+  <div class="personas">
+    <div class="persona">
+      <img src="images/mdw-persona-fm.jpg" alt="John, 45, son">
+      <h4>John, 45 (son)</h4>
+      <ul>
+        <li>Lives apart from Grandma Ann</li>
+        <li>Helps her for all issues related to Lina</li>
+        <li>E.g. renewing Lina's work permit, registering her for medical examinations</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <img src="images/mdw-persona-elderly.jpg" alt="Grandma Ann, 82, aged employer">
+      <h4>Grandma Ann, 82 (aged employer)</h4>
+      <ul>
+        <li>Not tech-savvy</li>
+        <li>Lives with Lina</li>
+        <li>Depends on John for helper related matters</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <img src="images/mdw-persona-worker.jpg" alt="Lina, 39, domestic worker">
+      <h4>Lina, 39 (domestic worker)</h4>
+      <ul>
+        <li>Provides day-to-day care for Grandma Ann</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>I then reviewed existing designs done by predecessors</h3>
+  <p>The existing designs needed cleaning up, so we tested each flow to surface usability and process issues. For example, I removed the flow letting employers assign family members themselves — aged, non-tech-savvy employers couldn't realistically log in to do that.</p>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/6234584ac358c91832376452_tob%20taking%20stock.png" alt="Reviewing existing designs">
+  </div>
+
+  <h2 id="research">Research overview</h2>
+  <p>We decided to conduct moderated user testing on 6 participants, who had all transacted for aged employers before. The research objectives were:</p>
+  <ul>
+    <li>To identify gaps in this new Transact on Behalf process</li>
+    <li>To test ease of use of possible flows</li>
+  </ul>
+
+  <h3>Streamlining the existing flows for testing</h3>
+  <p>The following use cases were tested:</p>
+  <ul>
+    <li>Grandma Ann assigning John to transact on her behalf and John accepting the assignment</li>
+    <li>John requesting to transact on behalf</li>
+    <li>John switching to Grandma Ann's profile to transact for her</li>
+    <li>Terminating John's own access to transact on behalf</li>
+    <li>A Sponsor assigning another FM to transact on behalf of the employer</li>
+  </ul>
+
+  <h3>Research revealed that 'Transact on behalf' was a new concept to users, and they had difficulty completing the tasks</h3>
+  <p>Here were some key research insights:</p>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/623c306aa6ef64011ae49ab5_2022%20MDW_%20TOB%20-%20Insight%201.jpg" alt="Research insight 1">
+  </div>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/623c306aa1b7860f2afd8181_2022%20MDW_%20TOB%20-%20Insight%202.jpg" alt="Research insight 2">
+  </div>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/623c306aca2b85be3ed4c2fb_2022%20MDW_%20TOB%20-%20Insight%203.jpg" alt="Research insight 3">
+  </div>
+
+  <h2 id="designing">Streamlining the existing flows for the MVP</h2>
+  <ul>
+    <li>Grandma Ann assigning John to transact on behalf of her and John accepting the assignment</li>
+    <li>John requesting to transact on behalf</li>
+    <li>John switching to Grandma Ann's profile to transact for her</li>
+    <li>Terminating John's own access to transact on behalf</li>
+    <li>A Sponsor assigning another FM to transact on behalf of the employer</li>
+  </ul>
+  <p>Point 1 confirmed our initial hypothesis that aged employers should not be going online. Instead, FMs should request to transact for them. Point 3's concept of switching profiles was redesigned, more on that below. To simplify the scope, Point 5 was removed.</p>
+
+  <h3>The user journey</h3>
+  <a class="proto-link" href="https://www.figma.com/proto/d1TAuWO0MuQVMVoXUoYZWT/Portfolio-revamp-2021?page-id=1624%3A73198&node-id=1624%3A73310&viewport=295%2C48%2C0.09&scaling=min-zoom&starting-point-node-id=1624%3A73310" target="_blank">View the full prototype →</a>
+
+  <h4>1. Firstly, FMs like John need to request to transact on behalf from their own account</h4>
+  <p>John clicks on the 'Request to transact' dropdown as shown on the left image. From the research insights, I improved the top navigation and discoverability of the feature.</p>
+  <div class="compare-grid">
+    <div class="compare-col good">
+      <h4>✅ After design improvement</h4>
+      <ul>
+        <li>Removed 'Manage Helpers'</li>
+        <li>'Transact for a Family Member' label has only 2 dropdown options</li>
+        <li>No need for dashboard, the options go straight to the transactions</li>
+      </ul>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/623d406984b79b3c724eea43_Improved%20top%20nav.jpg" alt="Improved top nav">
+    </div>
+    <div class="compare-col bad">
+      <h4>❌ Before design improvement</h4>
+      <ul>
+        <li>'Home' and 'Manage Helpers' lead to the same page</li>
+        <li>Users could not relate 'Family Member Permissions' to transacting for others</li>
+        <li>Cluttered dashboard with multiple call-to-actions</li>
+      </ul>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/623d4075d7a6eb14cc1ed622_John%27s%20dashboard.jpg" alt="John's dashboard before">
+    </div>
+  </div>
+
+  <h4>2. Next, he fills up the Request to Transact form and uploads the consent form signed by Grandma Ann</h4>
+  <p>This consent form authorises John to transact for her. Below is John's high level user flow.</p>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/623ff4288b99c521499fd00a_mdw%20user%20flow%20frame.jpg" alt="John's high level user flow">
+  </div>
+
+  <h4>3. After a MOM officer approves his request, he can start transacting for Grandma Ann!</h4>
+  <p>John can see both his worker's and Lina's details at one glance. Lina's pass is expiring soon and he clicks on 'Renew work permit.' Then, he fills up the 'Renew' form right away.</p>
+  <p>During user testing, users struggled with switching to the employer's profile to transact for them. Thus, we redesigned the homepage with all worker cards in one page. This way, transacting on behalf aligned with users' mental model.</p>
+  <div class="compare-grid">
+    <div class="compare-col good">
+      <h4>✅ After design improvement</h4>
+      <ul>
+        <li>No need to switch to Grandma Ann's profile</li>
+        <li>Took this opportunity to ideate and redesign the homepage beyond the 'Transact on Behalf' module</li>
+      </ul>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62557a676b3911a69523255f_revamped%20homepg.jpg" alt="Revamped homepage">
+    </div>
+    <div class="compare-col bad">
+      <h4>❌ Before design improvement</h4>
+      <ul>
+        <li>Homepage was confusing with unnecessary cards, links and buttons</li>
+        <li>Switch profile link is not prominent</li>
+        <li>Users did not understand why they still needed to switch even after they are approved to transact</li>
+      </ul>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/624240ecf862575fda7207f2_switch%20profile%20flow.jpg" alt="Switch profile flow before">
+    </div>
+  </div>
+
+  <h4>4. If John wants to stop transacting for Grandma Ann</h4>
+  <p>He clicks on 'Stop transacting' in the top nav. Users fed back that aged employers might still need help, so I added a reminder in the last screen to get another person to transact for them.</p>
+  <div class="image-block">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/624243636bd43077d6d53bb4_stop%20transacting%20improved.jpg" alt="Stop transacting improved flow">
+  </div>
+
+  <h2 id="challenges">Working around legacy systems</h2>
+  <p>The eService had many design constraints and inconsistencies. We had to push the limits of creativity within restricted boundaries. For example, I recommended clickable progress bars to break down forms into easier steps. However, there was pushback as all forms would have to be changed. Thus, I took advantage of this Transact on Behalf feature to introduce a modified, static version of it. I also used this opportunity to introduce a summary page to edit and view data.</p>
+  <div class="callout">By showing developers that new components added value to users, they were willing to implement them.</div>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <h4>Proposed progress bar</h4>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62550792374bae9996ab4b87_proposed%20progress%20bar.jpg" alt="Proposed progress bar">
+    </div>
+    <div class="compare-col">
+      <h4>Implemented progress bar</h4>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62557ad7945754b1a0b5d547_implemented%20progress%20bar.jpg" alt="Implemented progress bar">
+    </div>
+  </div>
+
+  <h2>Designing for non tech-savvy users</h2>
+  <p>As more services move online, the elderly and non-tech savvy are alienated.</p>
+  <div class="callout">We had to think of ways to be inclusive, for the best customer experience.</div>
+  <p>For example, we provided a physical consent form that allowed elderly employers to give consent for FMs to transact for them. FMs would then upload it online for a MOM officer to verify. This way, we also thought holistically for all customer touchpoints, needs and constraints.</p>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <h4>Physical consent form signed by elderly employer</h4>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62550957a08d1155255b7094_consent%20form%20portfolio.jpg" alt="Physical consent form">
+    </div>
+    <div class="compare-col">
+      <h4>FM uploads the form when requesting to transact on behalf</h4>
+      <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/62557b27dba917b317a020b6_upload%20consent%20form.jpg" alt="Upload consent form">
+    </div>
+  </div>
+
+  <h2>Many stakeholders involved</h2>
+  <p>Many stakeholders such as Customer Experience, Operations and Document Verification officers were involved. Thus, we had to align our product strategy and vision with them. I made sure to involve the Product Owner in these cross-functional meetings to push for our proposals.</p>
+  <div class="callout">I made allies of UX along the way who advocated for my decisions to get faster buy-in.</div>
+  <p>Clear communication made things more efficient, like sending recaps with pending items, milestones and achievements.</p>
+
+  <h2>Moving forward</h2>
+  <p>The design is largely finalised, but there might be some iterative changes. The results from the final usability testing have been positive!</p>
+  <div class="image-block" style="max-width: 280px;">
+    <img src="https://cdn.prod.website-files.com/617f2ff2885c2b3f8b54398a/6257618946ea0a512e86a58f_in%20progress%20illustration.jpg" alt="Moving forward illustration">
+  </div>
+
+  <h2>Reflections</h2>
+  <p>This project is special because I designed for people who we sometimes forget about — the less tech-savvy and elderly. Conducting usability tests opened my eyes to their struggles and motivated me to design better experiences.</p>
+
+  <h3>Main takeaways</h3>
+  <div class="takeaways">
+    <div class="takeaway-card">
+      <h4>Learning how to give and take when pushing for UX efforts</h4>
+      <p>This included going back to the research when facing pushback and providing alternative designs.</p>
+    </div>
+    <div class="takeaway-card">
+      <h4>Going beyond the brief to design the best possible experience</h4>
+      <p>Designing with tech constraints in mind is important. However, especially in the initial stages, we should create the most ideal experience first. With that as a starting point, it's easier to make compromises.</p>
+    </div>
+    <div class="takeaway-card">
+      <h4>Embracing the role of a leader</h4>
+      <p>I was able to drive design direction and product strategy in the whole product. Working with many stakeholders also honed my soft skills such as persuasion, empathy and storytelling.</p>
+    </div>
+  </div>
+
+  <p><a href="#top">Back to top</a></p>
+</div>
+
+<footer>
+  <p>No part of this portfolio may be distributed or saved.</p>
+  <a href="https://www.linkedin.com/in/b3lct/" target="_blank" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.25h4V23h-4V8.25zM8.5 8.25h3.83v2.02h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.83c0-1.63-.03-3.72-2.27-3.72-2.27 0-2.62 1.77-2.62 3.6V23h-4V8.25z"/></svg>
+  </a>
+  <p>© 2026 · Made with lots of ☕</p>
+</footer>
+
+</body>
+</html>
