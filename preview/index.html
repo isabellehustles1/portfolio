@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isabelle Tjokrosetio — Product Designer</title>
+<link rel="canonical" href="https://isabellehustles.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nav-bg: #dfdff6;
+    --accent: #4b397a;
+    --card-bg: #f2f2f7;
+    --border-gray: #c7c7cc;
+    --text-dark: #161616;
+    --max-width: 1280px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: #000;
+    background: #fff;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* Nav */
+  nav {
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 48px;
+    padding: 24px 48px;
+    font-size: 16px;
+  }
+  nav a:first-child { font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+
+  /* Hero */
+  .hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .greeting {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 16px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+  .intro {
+    font-size: 32px;
+    font-weight: 400;
+    max-width: 720px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .intro strong {
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .stars { font-size: 16px; margin-top: 8px; }
+  .socials {
+    display: flex;
+    gap: 12px;
+    padding-top: 10px;
+  }
+  .socials a {
+    width: 48px;
+    height: 48px;
+    background: #000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .socials svg { width: 22px; height: 22px; fill: #fff; }
+
+  /* Quick facts */
+  .quick-facts {
+    display: flex;
+    gap: 24px;
+    max-width: var(--max-width);
+    margin: 24px auto 0;
+    padding: 0 48px;
+    flex-wrap: wrap;
+  }
+  .fact {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px 24px;
+    min-width: 150px;
+  }
+  .fact .num { font-size: 24px; font-weight: 700; display: block; }
+  .fact .label { font-size: 16px; }
+  .fact .small { font-size: 12px; display: block; }
+
+  /* Worked with */
+  .worked-with {
+    background: var(--card-bg);
+    padding: 24px 48px;
+    margin-top: 40px;
+  }
+  .worked-with p.italic {
+    font-style: italic;
+    font-size: 12px;
+    margin: 0 0 16px;
+  }
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logos img { height: 40px; width: auto; object-fit: contain; filter: grayscale(0%); }
+
+  /* Selected works */
+  .selected-works {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 48px 100px;
+  }
+  .selected-works h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 24px;
+  }
+  .project-card {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 0px 1px 3px 1px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: #fff;
+    min-height: 220px;
+  }
+  .project-text {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 45%;
+    justify-content: center;
+  }
+  .project-text h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+  }
+  .project-text h3 span.brand { color: #0176d3; font-weight: 600; }
+  .project-text p {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  .project-image {
+    width: 55%;
+    overflow: hidden;
+    padding: 16px 0;
+    box-sizing: border-box;
+  }
+  .project-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 800px) {
+    nav, .hero, .quick-facts, .worked-with, .selected-works { padding-left: 24px; padding-right: 24px; }
+    .hero-top { flex-direction: column; }
+    .greeting { display: none; }
+    .project-card { flex-direction: column; }
+    .project-text, .project-image { width: 100%; }
+    .logos { justify-content: center; }
+    .logos img { height: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#works">Projects</a>
+  <a href="#about">About</a>
+  <a href="Isabelle_Tjokrosetio_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+</nav>
+
+<section class="hero" id="about">
+  <span class="greeting">hi~ I'm Isabelle</span>
+  <div class="hero-top">
+    <div>
+      <p class="intro">I'm a product designer who cares about products, people and <strong>problem solving through design</strong></p>
+      <div class="stars">🫧𓇼𓏲*ੈ✩‧₊</div>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/b3lct/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.25h4V23h-4V8.25zM8.5 8.25h3.83v2.02h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.83c0-1.63-.03-3.72-2.27-3.72-2.27 0-2.62 1.77-2.62 3.6V23h-4V8.25z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="quick-facts">
+  <div class="fact"><span class="num">8+</span><span class="label">years of end to end design</span></div>
+  <div class="fact"><span class="num">~9</span><span class="label">products shipped</span></div>
+  <div class="fact"><span class="num">5+</span><span class="label">industries served</span></div>
+  <div class="fact"><span class="small">specialises in</span><span class="label">Enterprise UX &amp; complex systems</span></div>
+</div>
+
+<div class="worked-with">
+  <p class="italic">previously worked with</p>
+  <div class="logos">
+    <img src="images/govtech-logo.jpg" alt="GovTech Singapore">
+    <img src="images/sf-logo.jpg" alt="Salesforce">
+    <img src="images/mas-logo.jpg" alt="Monetary Authority of Singapore">
+    <img src="images/dbs-logo.jpg" alt="DBS">
+    <img src="images/mindef-logo.jpg" alt="MINDEF">
+    <img src="images/aspire-logo.jpg" alt="Aspire Lifestyles">
+    <img src="images/airforce-logo.jpg" alt="Republic of Singapore Air Force">
+    <img src="images/mom-logo.jpg" alt="Ministry of Manpower">
+  </div>
+</div>
+
+<section class="selected-works" id="works">
+  <h2>selected works</h2>
+
+  <a href="https://www.figma.com/proto/r3oaB2tEThIyWLz6gf4TEq/Portfolio-2025?page-id=0%3A1&node-id=770-74402&p=f&viewport=-1121%2C-488%2C0.08&t=M2Ass7JmXukFPhWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=770%3A74402" target="_blank" rel="noopener" style="display:block; color:inherit;">
+    <div class="project-card">
+      <div class="project-text">
+        <h3>SupervisoryX</h3>
+        <p>Building AI-driven assessments for supervisory officers</p>
+      </div>
+      <div class="project-image">
+        <img src="images/supervisoryx-mock.jpg" alt="SupervisoryX product screenshot">
+      </div>
+    </div>
+  </a>
+
+  <a href="migrant-domestic-worker.html" style="display:block; color:inherit;">
+    <div class="project-card">
+      <div class="project-text">
+        <h3>Migrant Domestic Worker eService</h3>
+        <p>Empowering users to perform work permit transactions on behalf of their aged family members</p>
+      </div>
+      <div class="project-image">
+        <img src="images/mdw-mock.jpg" alt="Migrant Domestic Worker eService screenshot">
+      </div>
+    </div>
+  </a>
+
+  <a href="https://www.figma.com/proto/r3oaB2tEThIyWLz6gf4TEq/Portfolio-2025?page-id=0%3A1&node-id=1-84835&p=f&viewport=-1121%2C-488%2C0.08&t=oRHk0tq8GMYaXGHj-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A84835&show-proto-sidebar=1" target="_blank" rel="noopener" style="display:block; color:inherit;">
+    <div class="project-card">
+      <div class="project-text">
+        <h3>EmployeeHub</h3>
+        <p>Building a large-scale phygital campus</p>
+      </div>
+      <div class="project-image">
+        <img src="images/emhub-mock.jpg" alt="EmployeeHub product screenshot">
+      </div>
+    </div>
+  </a>
+
+  <a href="https://www.figma.com/proto/r3oaB2tEThIyWLz6gf4TEq/Portfolio-2025?page-id=0%3A1&node-id=367-86691&p=f&viewport=-1121%2C-488%2C0.08&t=oRHk0tq8GMYaXGHj-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=367%3A86691" target="_blank" rel="noopener" style="display:block; color:inherit;">
+    <div class="project-card">
+      <div class="project-text">
+        <h3>Aspire: An <span class="brand">Agentforce</span> UX case study</h3>
+        <p>Enhancing luxury concierge service with AI-powered summaries</p>
+      </div>
+      <div class="project-image">
+        <img src="images/aspire-mock.jpg" alt="Aspire Agentforce product screenshot">
+      </div>
+    </div>
+  </a>
+
+</section>
+
+</body>
+</html>
